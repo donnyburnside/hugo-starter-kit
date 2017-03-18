@@ -1,0 +1,14 @@
+{
+  "languageCode": "en-gb",
+  "title": "Site Title",
+  "params": {
+    "Strapline": "Site Strapline",
+    "Description": "Site Description"
+  },
+  "baseURL": "https://yourdomain.com/",
+  "GoogleAnalytics": "1234567890",
+  "publishDir": "dist",
+  "staticDir": "public",
+  "metaDataFormat": "json",
+  "disableHugoGeneratorInject": true
+}

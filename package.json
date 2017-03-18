@@ -1,0 +1,43 @@
+{
+  "name": "hugo-es6-postcss-webpack",
+  "version": "0.0.1",
+  "description": "A minimal starter kit for Hugo.",
+  "main": "index.js",
+  "scripts": {
+    "build:assets": "gulp production --gulpfile ./scripts/gulpfile.js",
+    "build:site": "HUGO_ENV=production hugo",
+    "prebuild": "npm run clean",
+    "build": "npm run build:assets && npm run build:site",
+    "dev:assets": "gulp development --gulpfile ./scripts/gulpfile.js",
+    "dev:site": "HUGO_ENV=development hugo server --buildDrafts --renderToDisk --baseURL \"http://localhost\"",
+    "predev": "npm run build:assets",
+    "dev": "concurrently \"npm run dev:assets\" \"npm run dev:site\"",
+    "clean": "rm -rf ./dist && rm -rf ./public"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
+    "concurrently": "^3.4.0",
+    "css-loader": "^0.27.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "gulp": "^3.9.1",
+    "postcss-loader": "^1.3.3",
+    "rimraf": "^2.6.1",
+    "webpack": "^2.2.1",
+    "webpack-merge": "^4.1.0",
+    "webpack-stream": "^3.2.0"
+  },
+  "author": "Donny Burnside <donnyburnside1@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donnyburnside/hugo-es6-postcss-webpack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/donnyburnside/hugo-es6-postcss-webpack/issues"
+  },
+  "homepage": "https://github.com/donnyburnside/hugo-es6-postcss-webpack#readme"
+}
