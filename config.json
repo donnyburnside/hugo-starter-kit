@@ -1,14 +1,23 @@
 {
   "languageCode": "en-gb",
   "title": "Site Title",
-  "params": {
-    "Strapline": "Site Strapline",
-    "Description": "Site Description"
-  },
   "baseURL": "https://yourdomain.com/",
-  "GoogleAnalytics": "1234567890",
+
+  "params": {
+    "description": "Strapline",
+    "long_description": "Description"
+  },
+
+  "googleanalytics": "1234567890",
+
+  "archetypeDir": "archetypes",
+  "contentDir": "content",
+  "dataDir": "data",
+  "layoutDir": "layouts",
   "publishDir": "dist",
   "staticDir": "public",
+  "themesDir": "themes",
+
   "metaDataFormat": "json",
   "disableHugoGeneratorInject": true
 }
