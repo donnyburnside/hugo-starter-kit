@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="no-js" lang="{{ .Lang }}" prefix="og: http://ogp.me/ns#">
+<head>
+  {{ partial "inc/meta" . }}
+  {{ partial "inc/favicons" . }}
+  {{ partial "inc/social-meta" . }}
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  </script>
+  {{ partial "inc/styles" . }}
+</head>
+<body>
+  <header role="banner">
+    <a class="" href="{{ "/" | relURL }}" title="{{ .Site.Title }}">
+      {{ .Site.Title }}
+    </a>
+    <nav role="navigation">
+      {{ partial "nav/main" . }}
+    </nav>
+  </header>
+
+  <main role="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer role="contentinfo">
+    <small>&copy; {{ now.Year }} {{ .Site.Title }}. All Rights Reserved.</small>
+  </footer>
+
+  {{ partial "inc/scripts" . }}
+</body>
+</html>

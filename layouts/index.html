@@ -1,5 +1,5 @@
-{{ partial "header.html" . }}
-<h1>{{ .Site.Title }}</h1>
-<p>{{ .Site.Params.Strapline }}</p>
-
-{{ partial "footer.html" . }}
+{{ define "main" }}
+{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
+{{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+{{ with .Content }}{{ . }}{{ end }}
+{{ end }}

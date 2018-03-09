@@ -1,0 +1,10 @@
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ with .Site.Params.description }} &ndash; {{ . }}{{ end }}{{ else }}{{ with .Title }}{{ . }}{{ end }} &ndash; {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ if .IsHome }}{{ with .Site.Params.long_description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
+
+<meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}" />
+<meta name="application-name" content="{{ .Site.Title }}" />
+<meta name="theme-color" content="#ffffff" />
