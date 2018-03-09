@@ -1,0 +1,29 @@
+<ul>
+  {{ $currentPage := . }}
+  {{ range .Site.Menus.main }}
+    {{ if .HasChildren }}
+      <li>
+        <a href="javascript:;" title="{{ .Name }}">
+          {{ .Pre }}
+          <span>{{ .Name }}</span>
+        </a>
+        <ul>
+          {{ range .Children }}
+            <li>
+              <a href="{{ .URL }}" title="{{ .Name }}">
+                <span>{{ .Name }}</span>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </li>
+    {{else}}
+      <li>
+        <a href="{{ .URL }}" title="{{ .Name }}">
+          {{ .Pre }}
+          <span>{{ .Name }}</span>
+        </a>
+      </li>
+    {{end}}
+  {{end}}
+</ul>

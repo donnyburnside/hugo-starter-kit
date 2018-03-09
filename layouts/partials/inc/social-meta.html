@@ -1,0 +1,28 @@
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ with .Site.Params.description }} &ndash; {{ . }}{{ end }}{{ else }}{{ with .Title }}{{ . }}{{ end }} &ndash; {{ .Site.Title }}{{ end }}">
+<meta property="og:description" content="{{ if .IsHome }}{{ with .Site.Params.long_description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ with .Site.Params.social.image }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+
+{{ with .Site.Params.social.twitter }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ with .Site.Params.description }} &ndash; {{ . }}{{ end }}{{ else }}{{ with .Title }}{{ . }}{{ end }} &ndash; {{ .Site.Title }}{{ end }}">
+<meta name="twitter:description" content="{{ if .IsHome }}{{ with .Site.Params.long_description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
+<meta name="twitter:card" content="summary">
+{{ with .Site.Params.social.image }}<meta name="twitter:image" content="{{ . | absURL }}">{{ end }}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "WebPage",
+  "name": "{{ .Site.Title }}",
+  "description": "{{ with .Site.Params.description }}{{ . }}{{ end }}",
+  "image": "{{ with .Site.Params.social.image }}{{ . | absURL }}{{ end }}",
+  "mainContentOfPage": {
+    "@type": "WebPageElement",
+    "name": "{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}",
+    "description": "{{ if .IsHome }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}"
+  },
+  "copyrightYear": "{{ now.Year }}"
+}
+</script>
