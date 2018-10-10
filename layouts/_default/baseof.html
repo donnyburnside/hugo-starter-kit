@@ -1,0 +1,50 @@
+<!doctype html>
+<html class="no-js" lang="{{ .Lang }}" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#ffffff" />
+
+    {{ partial "favicons" . }}
+
+    <title>
+        {{ if .IsHome }}
+            {{ .Site.Title }}{{ with .Site.Params.strapline }} &ndash; {{ . }}{{ end }}
+        {{ else }}
+            {{ with .Title }}{{ . }}{{ end }} &ndash; {{ .Site.Title }}
+        {{ end }}
+    </title>
+    <meta name="description" content="{{ if .IsHome }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ else }}{{ with .Description }}{{ . }}{{ end }}{{ end }}">
+
+    {{ template "_internal/opengraph.html" . }}
+    {{ template "_internal/schema.html" . }}
+    {{ template "_internal/twitter_cards.html" . }}
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+    {{ partial "styles" . }}
+</head>
+<body>
+    <header role="banner">
+        <a class="" href="{{ "/" | relURL }}" title="{{ .Site.Title }}">
+            {{ .Site.Title }}
+        </a>
+        <nav role="navigation">
+            {{ partial "nav/main" . }}
+        </nav>
+    </header>
+
+    <main role="main">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer role="contentinfo">
+        <small>&copy; {{ now.Year }} {{ .Site.Title }}. All Rights Reserved.</small>
+    </footer>
+
+    {{ partial "scripts" . }}
+</body>
+</html>

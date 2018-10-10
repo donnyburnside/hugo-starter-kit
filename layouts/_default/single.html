@@ -1,0 +1,10 @@
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+    <ul>
+        {{ range .Params.tags }}
+            <li><a href="{{ (printf "/%s/%s/" "tags" . ) | relURL }}">{{ . }}</a> </li>
+        {{ end }}
+    </ul>
+    {{ with .Content }}{{ . }}{{ end }}
+{{ end }}

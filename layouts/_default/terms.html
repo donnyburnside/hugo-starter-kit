@@ -1,0 +1,10 @@
+{{ define "main" }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+    {{ with .Content }}{{ . }}{{ end }}
+    <ul>
+        {{ range .Pages }}
+            {{ .Render "li" }}
+        {{ end }}
+    </ul>
+{{ end }}

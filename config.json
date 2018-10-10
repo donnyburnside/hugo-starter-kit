@@ -1,0 +1,21 @@
+{
+    "languageCode": "en-gb",
+    "title": "Site Title",
+    "baseURL": "https://yourdomain.com/",
+
+    "params": {
+        "strapline": "Strapline",
+        "description": "Description"
+    },
+
+    "taxonomies": {
+        "tag": "tags"
+    },
+
+    "googleAnalytics": "#",
+
+    "disableHugoGeneratorInject": true,
+    "disableLiveReload": true,
+    "enableRobotsTXT": true,
+    "metaDataFormat": "json"
+}

@@ -1,0 +1,29 @@
+<ul aria-label="Site Links" role="menubar">
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+        {{ if .HasChildren }}
+            <li class="{{ if $currentPage.HasMenuCurrent "main" . }}is-active{{ end }}" role="none">
+                <a href="{{ .URL }}" title="{{ .Name }}" role="menuitem">
+                    {{ .Pre }}
+                    <span>{{ .Name }}</span>
+                </a>
+                <ul aria-label="{{ .Name }}" role="menu">
+                    {{ range .Children }}
+                        <li class="{{ if $currentPage.IsMenuCurrent "main" . }}is-active{{ end }}" role="none">
+                            <a href="{{ .URL }}" title="{{ .Name }}" role="menuitem">
+                                <span>{{ .Name }}</span>
+                            </a>
+                        </li>
+                    {{ end }}
+                </ul>
+            </li>
+        {{else}}
+            <li class="{{ if $currentPage.IsMenuCurrent "main" . }}is-active{{ end }}" role="none">
+                <a href="{{ .URL }}" title="{{ .Name }}" role="menuitem">
+                    {{ .Pre }}
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+        {{end}}
+    {{end}}
+</ul>

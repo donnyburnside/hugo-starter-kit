@@ -1,0 +1,9 @@
+{{ define "main" }}
+    <h1>{{ (printf "%s: %s" (.Data.Singular | humanize) .Title) }}</h1>
+    {{ with .Params.description }}<p>{{ . }}</p>{{ end }}
+    {{ with .Content }}{{ . }}{{ end }}
+    {{ range .Paginator.Pages }}
+        {{ .Render "summary" }}
+    {{ end }}
+    {{ template "_internal/pagination.html" . }}
+{{ end }}

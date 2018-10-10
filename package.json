@@ -1,0 +1,40 @@
+{
+    "name": "hugo-starter-kit",
+    "version": "1.0.0",
+    "scripts": {
+        "assets:development": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+        "assets:production": "cross-env NODE_ENV=production webpack -p --no-progress --hide-modules",
+        "build": "cross-env HUGO_ENV=production hugo",
+        "prebuild": "npm run assets:production",
+        "serve": "concurrently \"hugo server --buildDrafts --disableFastRender --disableLiveReload --renderToDisk\" \"npm run assets:development -- --watch\"",
+        "preserve": "npm run assets:development",
+        "clean": "rimraf ./public/* && rimraf ./static/assets/*"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/core": "^7.1.2",
+        "@babel/preset-env": "^7.1.0",
+        "autoprefixer": "^9.1.5",
+        "babel-loader": "^8.0.4",
+        "browser-sync": "^2.24.7",
+        "browser-sync-webpack-plugin": "^2.0.1",
+        "concurrently": "^4.0.1",
+        "cross-env": "^5.2.0",
+        "css-loader": "^1.0.0",
+        "file-loader": "^2.0.0",
+        "mini-css-extract-plugin": "^0.4.3",
+        "node-sass": "^4.9.3",
+        "postcss-loader": "^3.0.0",
+        "rimraf": "^2.6.2",
+        "sass-loader": "^7.1.0",
+        "webpack": "^4.20.2",
+        "webpack-cli": "^3.1.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/donnyburnside/hugo-starter-kit.git"
+    },
+    "author": "Donny Burnside <donnyburnside1@gmail.com>",
+    "license": "UNLICENSED",
+    "homepage": "https://github.com/donnyburnside/hugo-starter-kit#readme"
+}
